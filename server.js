@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    "https://hs-mh-app.netlify.app"
+    "https://hospital-manage-new.netlify.app/login"
   ],
   credentials: true
 }));
