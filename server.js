@@ -16,7 +16,7 @@ app.use(cors({
   origin: [
     "http://localhost:5173",
     "https://hospital-booking-appointment.netlify.app",
-    "https://hospital-appointment-booking-new2.netlify.app"
+    "https://hospital-booking-appointment-new2.netlify.app"
   ],
   credentials: true
 }));
