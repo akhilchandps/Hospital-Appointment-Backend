@@ -93,16 +93,23 @@ exports.getAllAppointments = async (req, res) => {
 };
 
 exports.updateStatus = async (req, res) => {
-
     try {
         const { status } = req.body;
-        const { id } = req.params
+        const { id } = req.params;
 
-        const appt = await Appointment.findByIdAndUpdate(id);
+        const appt = await Appointment.findByIdAndUpdate(
+            id,
+            { status },
+            { new: true }
+        )
+            .populate("patientId", "name email")
+            .populate("doctorId", "name specialization");
 
-        appt.status = status;
-
-        await appt.save();
+        if (!appt) {
+            return res.status(404).json({
+                message: "Appointment not found",
+            });
+        }
 
         res.status(200).json(appt);
 

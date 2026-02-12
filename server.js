@@ -15,7 +15,8 @@ app.use(express.json());
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    "https://hospital-booking-appointment.netlify.app"
+    "https://hospital-booking-appointment.netlify.app",
+    "https://hospital-booking-appointment-new.netlify.app"
   ],
   credentials: true
 }));
